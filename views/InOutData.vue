@@ -5,33 +5,22 @@
     <section class="container p-6 mx-auto font-sans">
       <div class="flex mb-8 space-x-4">
         <!-- Name or license plate search -->
-        <input
-          type="text"
-          v-model="searchTerm"
-          placeholder="ค้นหาชื่อหรือป้ายทะเบียน"
-          class="w-full p-2 text-base border border-gray-300 rounded-lg focus:outline-none focus:ring focus:border-blue-300"
-        />
+        <input type="text" v-model="searchTerm" placeholder="ค้นหาชื่อหรือป้ายทะเบียน"
+          class="w-full p-2 text-base border border-gray-300 rounded-lg focus:outline-none focus:ring focus:border-blue-300" />
 
         <!-- Date search -->
-        <input
-          type="date"
-          v-model="searchDate"
-          class="p-2 text-base border border-gray-300 rounded-lg focus:outline-none focus:ring focus:border-blue-300"
-        />
+        <input type="date" v-model="searchDate"
+          class="p-2 text-base border border-gray-300 rounded-lg focus:outline-none focus:ring focus:border-blue-300" />
 
         <!-- Search button -->
-        <button
-          @click="search"
-          class="px-4 py-2 text-base text-white bg-blue-500 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300"
-        >
+        <button @click="search"
+          class="px-4 py-2 text-base text-white bg-blue-500 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">
           ค้นหา
         </button>
 
         <!-- Refresh button -->
-        <button
-          @click="resetFilters"
-          class="px-4 py-2 text-base text-white bg-gray-500 rounded-lg hover:bg-gray-600 focus:outline-none focus:ring focus:border-gray-300"
-        >
+        <button @click="resetFilters"
+          class="px-4 py-2 text-base text-white bg-gray-500 rounded-lg hover:bg-gray-600 focus:outline-none focus:ring focus:border-gray-300">
           รีเฟรช
         </button>
       </div>
@@ -42,11 +31,11 @@
           <table class="w-full text-sm">
             <thead>
               <tr
-                class="font-semibold tracking-wide text-left text-gray-900 uppercase bg-gray-100 border-b border-gray-600 text-md"
-              >
+                class="font-semibold tracking-wide text-left text-gray-900 uppercase bg-gray-100 border-b border-gray-600 text-md">
                 <th class="px-4 py-3">ลำดับ</th>
                 <th class="px-4 py-3">ชื่อ-นามสกุล</th>
                 <th class="px-4 py-3">ป้ายทะเบียน</th>
+                <th class="px-4 py-3">จังหวัด</th>
                 <th class="px-4 py-3 text-green-800 bg-green-100 rounded-md">
                   สถานะการเข้า
                 </th>
@@ -57,11 +46,7 @@
             </thead>
 
             <tbody class="bg-white">
-              <tr
-                v-for="(record, index) in filteredRecords"
-                :key="index"
-                class="text-gray-700 border-b"
-              >
+              <tr v-for="(record, index) in filteredRecords" :key="index" class="text-gray-700 border-b">
                 <td class="px-4 py-3 border">
                   {{ index + 1 }}
                   <!-- แสดงลำดับเริ่มจาก 1 -->
@@ -72,6 +57,11 @@
                 <td class="px-4 py-3 border">
                   <p class="font-semibold text-black">
                     {{ record.licensePlate }}
+                  </p>
+                </td>
+                <td class="px-4 py-3 border">
+                  <p class="font-semibold text-black">
+                    {{ record.licensePlateProvince }}
                   </p>
                 </td>
                 <td class="px-4 py-3 border">
