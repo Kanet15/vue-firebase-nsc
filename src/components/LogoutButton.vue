@@ -13,7 +13,7 @@ export default {
       const auth = getAuth();
       try {
         await signOut(auth);
-        router.push("/login");
+        this.$router.push("/sign-in");
         console.log("User signed out successfully");
       } catch (error) {
         console.error("Error signing out: ", error);

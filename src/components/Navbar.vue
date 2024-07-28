@@ -59,6 +59,7 @@
         <router-link class="block w-full py-2 text-lg text-gray-800 border-b border-gray-300" to="/toggleout"
           @click="closeMenu">เปิด-ปิดแผงกั้นทางออก</router-link>
         <LogoutButton class="block w-full py-2 text-lg text-gray-800" @click="closeMenu" />
+
       </div>
     </div>
   </div>
@@ -80,8 +81,9 @@ export default {
       isMenuOpen.value = !isMenuOpen.value;
     };
 
-    const closeMenu = () => {
+    const closeMenu = async () => {
       isMenuOpen.value = false;
+
     };
 
     const handleResize = () => {

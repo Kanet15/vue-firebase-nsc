@@ -2,27 +2,27 @@
   <div>
     <Navbar />
     <!-- Search inputs -->
-    <section class="container mx-auto p-6 font-sans">
+    <section class="container p-6 mx-auto font-sans">
       <div class="flex mb-8 space-x-4">
         <!-- Name or license plate search -->
         <input
           type="text"
           v-model="searchTerm"
           placeholder="ค้นหาชื่อหรือป้ายทะเบียน"
-          class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:border-blue-300 text-base"
+          class="w-full p-2 text-base border border-gray-300 rounded-lg focus:outline-none focus:ring focus:border-blue-300"
         />
 
         <!-- Date search -->
         <input
           type="date"
           v-model="searchDate"
-          class="p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:border-blue-300 text-base"
+          class="p-2 text-base border border-gray-300 rounded-lg focus:outline-none focus:ring focus:border-blue-300"
         />
 
         <!-- Search button -->
         <button
           @click="search"
-          class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300 text-base"
+          class="px-4 py-2 text-base text-white bg-blue-500 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300"
         >
           ค้นหา
         </button>
@@ -30,7 +30,7 @@
         <!-- Refresh button -->
         <button
           @click="resetFilters"
-          class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 focus:outline-none focus:ring focus:border-gray-300 text-base"
+          class="px-4 py-2 text-base text-white bg-gray-500 rounded-lg hover:bg-gray-600 focus:outline-none focus:ring focus:border-gray-300"
         >
           รีเฟรช
         </button>
@@ -42,15 +42,15 @@
           <table class="w-full text-sm">
             <thead>
               <tr
-                class="text-md font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600"
+                class="font-semibold tracking-wide text-left text-gray-900 uppercase bg-gray-100 border-b border-gray-600 text-md"
               >
                 <th class="px-4 py-3">ลำดับ</th>
                 <th class="px-4 py-3">ชื่อ-นามสกุล</th>
                 <th class="px-4 py-3">ป้ายทะเบียน</th>
-                <th class="px-4 py-3 bg-green-100 text-green-800 rounded-md">
+                <th class="px-4 py-3 text-green-800 bg-green-100 rounded-md">
                   สถานะการเข้า
                 </th>
-                <th class="px-4 py-3 bg-red-100 text-red-800 rounded-md">
+                <th class="px-4 py-3 text-red-800 bg-red-100 rounded-md">
                   สถานะการออก
                 </th>
               </tr>
@@ -67,7 +67,7 @@
                   <!-- แสดงลำดับเริ่มจาก 1 -->
                 </td>
                 <td class="px-4 py-3 font-semibold border">
-                  {{ record.FirstName }} {{ record.LastName }}
+                  {{ record.firstName }} {{ record.lastName }}
                 </td>
                 <td class="px-4 py-3 border">
                   <p class="font-semibold text-black">
