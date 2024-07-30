@@ -1,48 +1,64 @@
 <template>
   <div class="flex flex-col items-center justify-center p-4 m-10 space-y-4">
-
-    <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <div
+      class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+    >
       <!-- <a href="#">
         <img class="rounded-t-lg" src="" alt="" />
       </a> -->
       <div class="p-5">
         <a href="#">
-          <h5 class="mb-2 text-2xl font-bold tracking-tight text-center text-blue-900 dark:text-white">
-            ควบคุมการเปิดปิดไม้กั้นทางเข้า</h5>
+          <h5
+            class="mb-2 text-2xl font-bold tracking-tight text-center text-blue-900 dark:text-white"
+          >
+            ควบคุมการเปิดปิดไม้กั้นทางเข้า
+          </h5>
         </a>
         <p class="mb-3 font-normal text-center text-red-600 dark:text-gray-400">
-          กรุณาเลือกการควบคุมอย่างระมัดระวัง.</p>
-
+          กรุณาเลือกการควบคุมอย่างระมัดระวัง.
+        </p>
       </div>
     </div>
 
     <!-- ปุ่มเปิด -->
-    <button @click="toggleOn" :class="{
+    <button
+      @click="toggleOn"
+      :class="{
         'w-full sm:w-2/3 md:w-1/2 lg:w-1/3 xl:w-1/4 py-4 rounded-lg text-white text-2xl font-semibold': true,
         'bg-green-500': isOn,
         'bg-gray-300': !isOn,
-      }" class="transition duration-300 ease-in-out transform hover:scale-105">
+      }"
+      class="transition duration-300 ease-in-out transform hover:scale-105"
+    >
       เปิดไม้กั้นทางเข้า
     </button>
 
     <!-- ปุ่มปิด -->
-    <button @click="toggleOff" :class="{
+    <button
+      @click="toggleOff"
+      :class="{
         'w-full sm:w-2/3 md:w-1/2 lg:w-1/3 xl:w-1/4 py-4 rounded-lg text-white text-2xl font-semibold': true,
         'bg-red-500': isOff,
         'bg-gray-300': !isOff,
-      }" class="transition duration-300 ease-in-out transform hover:scale-105">
+      }"
+      class="transition duration-300 ease-in-out transform hover:scale-105"
+    >
       ปิดไม้กั้นทางเข้า
     </button>
     <!-- ปุ่มออโต้ -->
-    <button @click="toggleauto" :class="{
-      'w-full sm:w-2/3 md:w-1/2 lg:w-1/3 xl:w-1/4 py-4 rounded-lg text-white text-2xl font-semibold': true,
-      'bg-blue-500': isAuto,
-      'bg-gray-300': !isAuto,
-    }" class="transition duration-300 ease-in-out transform hover:scale-105">
+    <button
+      @click="toggleauto"
+      :class="{
+        'w-full sm:w-2/3 md:w-1/2 lg:w-1/3 xl:w-1/4 py-4 rounded-lg text-white text-2xl font-semibold': true,
+        'bg-blue-500': isAuto,
+        'bg-gray-300': !isAuto,
+      }"
+      class="transition duration-300 ease-in-out transform hover:scale-105"
+    >
       เปิดอัตโนมัติทางเข้า
     </button>
 
-    <div class="bg-white">
+    <!-- <div class="bg-white">
       <div class="max-w-2xl px-4 py-16 mx-auto sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
 
 
@@ -93,8 +109,7 @@
 
 
       </div>
-    </div>
-
+    </div> -->
   </div>
 </template>
 
@@ -108,28 +123,16 @@ export default {
     const isOn = ref(false);
     const isOff = ref(false);
     const isAuto = ref(false);
-    const distance1 = ref(0);
-    const distance2 = ref(0);
-    const distance3 = ref(0);
-    const distance4 = ref(0);
-    
-    const fetchData = async () => {
-      const barrier_in_on = dbRef(realtime, 'barrier_in_on'); // กำหนด path ไปยัง field ที่ต้องการ
-      const barrier_in_off = dbRef(realtime, 'barrier_in_off'); // กำหนด path ไปยัง field ที่ต้องการ
-      const barrier_in_auto = dbRef(realtime, 'barrier_in_auto'); // กำหนด path ไปยัง field ที่ต้องการ
-      const in_distance1 = dbRef(realtime, 'in_distance1');
-      const in_distance2 = dbRef(realtime, 'in_distance2');
-      const in_distance3 = dbRef(realtime, 'in_distance3');
-      const in_distance4 = dbRef(realtime, 'in_distance4');
 
-      const [snapshot1, snapshot2, snapshot3, snapshot4, snapshot5, snapshot6, snapshot7] = await Promise.all([
+    const fetchData = async () => {
+      const barrier_in_on = dbRef(realtime, "barrier_in_on"); // กำหนด path ไปยัง field ที่ต้องการ
+      const barrier_in_off = dbRef(realtime, "barrier_in_off"); // กำหนด path ไปยัง field ที่ต้องการ
+      const barrier_in_auto = dbRef(realtime, "barrier_in_auto"); // กำหนด path ไปยัง field ที่ต้องการ
+
+      const [snapshot1, snapshot2, snapshot3] = await Promise.all([
         get(barrier_in_on),
         get(barrier_in_off),
         get(barrier_in_auto),
-        get(in_distance1),
-        get(in_distance2),
-        get(in_distance3),
-        get(in_distance4),
       ]);
 
       if (snapshot1.exists()) {
@@ -143,58 +146,28 @@ export default {
       } else {
         console.log("No data available for field2");
       }
-      if (snapshot3.exists()) {
-        isAuto.value = snapshot3.val();
-      } else {
-        console.log("No data available for field3");
-      }
-      if (snapshot4.exists()) {
-        distance1.value = snapshot4.val();
-      } else {
-        console.log("No data available for field3");
-      }
-      if (snapshot5.exists()) {
-        distance2.value = snapshot5.val();
-      } else {
-        console.log("No data available for field3");
-      }
-      if (snapshot6.exists()) {
-        distance3.value = snapshot6.val();
-      } else {
-        console.log("No data available for field3");
-      }
-      if (snapshot7.exists()) {
-        distance4.value = snapshot7.val();
-      } else {
-        console.log("No data available for field3");
-      }
     };
-   
 
     fetchData();
 
-    
-
     const toggleOn = async () => {
-      
       const updates = {};
-      updates['barrier_in_on'] = true;
-      updates['barrier_in_off'] = false;
-      updates['barrier_in_auto'] = false;
+      updates["barrier_in_on"] = true;
+      updates["barrier_in_off"] = false;
+      updates["barrier_in_auto"] = false;
       await update(dbRef(realtime), updates);
       fetchData(); // เรียก fetchData เพื่อรีเฟรชค่าใน fieldValue
-          
+
       isOn.value = true;
       isOff.value = false;
       isAuto.value = false;
-          
     };
 
     const toggleOff = async () => {
       const updates = {};
-      updates['barrier_in_on'] = false;
-      updates['barrier_in_off'] = true;
-      updates['barrier_in_auto'] = false;
+      updates["barrier_in_on"] = false;
+      updates["barrier_in_off"] = true;
+      updates["barrier_in_auto"] = false;
       await update(dbRef(realtime), updates);
       fetchData(); // เรียก fetchData เพื่อรีเฟรชค่าใน fieldValue
       isOn.value = false;
@@ -203,9 +176,9 @@ export default {
     };
     const toggleauto = async () => {
       const updates = {};
-      updates['barrier_in_on'] = false;
-      updates['barrier_in_off'] = false;
-      updates['barrier_in_auto'] = true;
+      updates["barrier_in_on"] = false;
+      updates["barrier_in_off"] = false;
+      updates["barrier_in_auto"] = true;
       await update(dbRef(realtime), updates);
       fetchData(); // เรียก fetchData เพื่อรีเฟรชค่าใน fieldValue
       isOn.value = false;
@@ -217,10 +190,6 @@ export default {
       isOn,
       isOff,
       isAuto,
-      distance1,
-      distance2,
-      distance3,
-      distance4,
       toggleOn,
       toggleOff,
       toggleauto,

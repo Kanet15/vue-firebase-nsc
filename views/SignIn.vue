@@ -6,12 +6,15 @@
       >
         <div class="md:max-w-md w-full px-4 py-4">
           <form @submit.prevent="register">
-            <div class="mb-12">
-              <h3 class="text-gray-800 text-3xl font-extrabold">Sign in</h3>
+            <div class="mb-12 text-center">
+              <h3 class="text-gray-800 text-3xl font-extrabold">เข้าสู่ระบบ</h3>
             </div>
+
             <!-- Email -->
             <div>
-              <label class="text-gray-800 text-xs block mb-2">Email</label>
+              <label class="text-gray-800 text-base font-medium block mb-2"
+                >Email</label
+              >
               <div class="relative flex items-center">
                 <input
                   name="email"
@@ -25,7 +28,9 @@
             </div>
             <!-- Password -->
             <div class="mt-8">
-              <label class="text-gray-800 text-xs block mb-2">Password</label>
+              <label class="text-gray-800 text-base font-medium block mb-2"
+                >Password</label
+              >
               <div class="relative flex items-center">
                 <input
                   name="password"
@@ -47,7 +52,7 @@
                 type="submit"
                 class="w-full shadow-xl py-2.5 px-4 text-sm tracking-wide rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none"
               >
-                Sign in
+                เข้าสู่ระบบ
               </button>
             </div>
           </form>

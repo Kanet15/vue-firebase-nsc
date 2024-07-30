@@ -48,12 +48,8 @@
                 <th class="px-4 py-3">ชื่อ-นามสกุล</th>
                 <th class="px-4 py-3">ป้ายทะเบียน</th>
                 <th class="px-4 py-3">จังหวัด</th>
-                <th class="px-4 py-3 text-green-800 bg-green-100 rounded-md">
-                  สถานะการเข้า
-                </th>
-                <th class="px-4 py-3 text-red-800 bg-red-100 rounded-md">
-                  สถานะการออก
-                </th>
+                <th class="px-4 py-3">สถานะการเข้า</th>
+                <th class="px-4 py-3">สถานะการออก</th>
               </tr>
             </thead>
 
@@ -63,7 +59,7 @@
                 :key="index"
                 class="text-gray-700 border-b"
               >
-                <td class="px-4 py-3 border">
+                <td class="text-xl px-4 py-3 border">
                   {{ index + 1 }}
                   <!-- แสดงลำดับเริ่มจาก 1 -->
                 </td>

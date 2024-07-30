@@ -3,25 +3,32 @@
     <Navbar />
     <form @submit.prevent="handleSubmit">
       <div
-        class="bg-gray-200 flex items-center justify-center min-h-screen py-36"
+        class="bg-gray-200 flex items-center justify-center min-h-screen py-16"
       >
-        <div class="container mx-auto px-4">
-          <div class="bg-white rounded-lg shadow-lg p-6 md:p-8">
-            <div class="text-gray-700 mb-4">
-              <p class="font-bold text-xl mb-2">เพิ่มบุคลากร</p>
-              <p class="text-gray-600">กรุณากรอกข้อมูลด้านล่างให้ครบถ้วน</p>
+        <div class="container mx-auto px-4 md:px-8 lg:px-12">
+          <div class="bg-white rounded-lg shadow-lg p-6 md:p-8 lg:p-10">
+            <div class="text-gray-700 mb-6">
+              <p class="font-bold text-2xl md:text-3xl lg:text-4xl mb-2">
+                เพิ่มบุคลากร
+              </p>
+              <p class="text-gray-600 text-base md:text-lg lg:text-xl">
+                กรุณากรอกข้อมูลด้านล่างให้ครบถ้วน
+              </p>
             </div>
 
             <div class="space-y-6">
               <div>
-                <label for="first_name" class="block text-gray-800 font-medium">
+                <label
+                  for="first_name"
+                  class="block text-gray-800 font-medium text-lg md:text-xl"
+                >
                   ชื่อ
                 </label>
                 <input
                   type="text"
                   name="first_name"
                   id="first_name"
-                  class="h-12 border border-gray-300 mt-1 rounded-lg px-4 w-full bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  class="h-12 border border-gray-300 mt-1 rounded-lg px-4 w-full bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300"
                   v-model="firstName"
                   placeholder="ไม่ต้องใส่คำนำหน้า"
                   required
@@ -29,14 +36,17 @@
               </div>
 
               <div>
-                <label for="last_name" class="block text-gray-800 font-medium">
+                <label
+                  for="last_name"
+                  class="block text-gray-800 font-medium text-lg md:text-xl"
+                >
                   นามสกุล
                 </label>
                 <input
                   type="text"
                   name="last_name"
                   id="last_name"
-                  class="h-12 border border-gray-300 mt-1 rounded-lg px-4 w-full bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  class="h-12 border border-gray-300 mt-1 rounded-lg px-4 w-full bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300"
                   v-model="lastName"
                   required
                 />
@@ -45,7 +55,7 @@
               <div>
                 <label
                   for="license_plate"
-                  class="block text-gray-800 font-medium"
+                  class="block text-gray-800 font-medium text-lg md:text-xl"
                 >
                   ป้ายทะเบียน
                 </label>
@@ -53,7 +63,7 @@
                   type="text"
                   name="license_plate"
                   id="license_plate"
-                  class="h-12 border border-gray-300 mt-1 rounded-lg px-4 w-full bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  class="h-12 border border-gray-300 mt-1 rounded-lg px-4 w-full bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300"
                   v-model="licensePlate"
                   placeholder="กรอกป้ายทะเบียน"
                   required
@@ -63,7 +73,7 @@
               <div>
                 <label
                   for="license_plate_province"
-                  class="block text-gray-800 font-medium"
+                  class="block text-gray-800 font-medium text-lg md:text-xl"
                 >
                   จังหวัดของป้ายทะเบียน
                 </label>
@@ -71,7 +81,7 @@
                   type="text"
                   name="license_plate_province"
                   id="license_plate_province"
-                  class="h-12 border border-gray-300 mt-1 rounded-lg px-4 w-full bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  class="h-12 border border-gray-300 mt-1 rounded-lg px-4 w-full bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300"
                   v-model="licensePlateProvince"
                   placeholder="กรอกจังหวัดของป้ายทะเบียนให้ถูกต้อง"
                   required
@@ -81,7 +91,7 @@
               <div class="text-right">
                 <button
                   type="submit"
-                  class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-200"
+                  class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg shadow-md transition duration-200 transform hover:scale-105"
                 >
                   เพิ่มข้อมูลบุคลากร
                 </button>
